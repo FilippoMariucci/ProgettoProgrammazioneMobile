@@ -13,6 +13,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+
+//qui prendo riferimenti al db firebase
 class EventsDataFirebase(private val database: EventsRoomDb) {
     var eventList = ArrayList<EventoDb>()
     var auth = FirebaseAuth.getInstance()
@@ -31,10 +33,12 @@ class EventsDataFirebase(private val database: EventsRoomDb) {
     }
 
     fun boh(): Boolean {
-        getEvents()
+        getEvents()  //funzione definita dopo
         return true
     }
 
+    //qui uso le coroutine per eseguire in modo asincrono e non bloccare il thread principale
+    //visto che leggo dal db e può metterci tempo
     fun getAllEvents()  = CoroutineScope(Dispatchers.IO).launch{
         dbRef = FirebaseDatabase.getInstance().getReference("Evento")
         dbRef.addValueEventListener(object : ValueEventListener {
@@ -42,8 +46,8 @@ class EventsDataFirebase(private val database: EventsRoomDb) {
                 if (snapshot.exists()) {
                     for (eventSnap in snapshot.children) {
                         val eventoSingolo = eventSnap.getValue(EventoDb::class.java)
-                        if (eventoSingolo != null) {
-                            database.eventoDao().insert(eventoSingolo)
+                        if (eventoSingolo != null) {                      //se diverso da null c'è qualcosa e
+                            database.eventoDao().insert(eventoSingolo)  //li salvo nel db room
                         }
                     }
 
@@ -61,36 +65,32 @@ class EventsDataFirebase(private val database: EventsRoomDb) {
     fun getEvents() {
         databaseRemoteEvents.get().addOnSuccessListener {
             events ->
-            val dio = ArrayList<EventoDb>()
+            val list = ArrayList<EventoDb>()
             for(evento in events.children){
                 val eventoSingolo = evento.getValue(EventoDb::class.java)
-//                if (eventoSingolo != null) {
-//                    database.eventoDao().insert(eventoSingolo)
-//                }
-            Log.d("fica1", "$eventoSingolo")
-                dio.add(eventoSingolo!!)
-            Log.d("diocane", "$dio")
+
+            Log.d("prova1", "$eventoSingolo")
+                list.add(eventoSingolo!!)
+            Log.d("prova2", "$list")
             }
-            setList(dio)
+            setList(list)  //funzione definita dopo
         }.addOnFailureListener{
-            Log.d("erroreFirebase", "errore")
+            Log.d("prova3", "errore")
         }
-        Log.d("fica", "${eventList}")
+        Log.d("prova4", "${eventList}")
         Thread.sleep(3000)
     }
 
-    private fun setList(eventdio: ArrayList<EventoDb>){
-        this.eventList = eventdio
-        Log.d("hovinto", "${eventList}")
+    private fun setList(event: ArrayList<EventoDb>){
+        this.eventList = event
+        Log.d("riuscitoo", "${eventList}")
     }
 
     fun inserEventRemote(model: EventoDb, imageUri: Uri) {
             var ritorno = false
-            //reference = FirebaseDatabase.getInstance().getReference("Evento")
-            model.id_evento = databaseRemoteEvents.push().getKey().toString();
 
-//            val url_storage = "gs://programmazionemobile-a1b11.appspot.com/Users/${model.id_evento}"
-//            model.foto = url_storage
+            model.id_evento = databaseRemoteEvents.push().getKey().toString();
+           //da rivedere meglio
 
             uploadEventPictureRemote(model.id_evento, imageUri)
 
@@ -104,7 +104,7 @@ class EventsDataFirebase(private val database: EventsRoomDb) {
                         ritorno = false
                     }
             }
-            print(ritorno)
+            print(ritorno)  //per verificare se è andato a buon fine
     }
 
     fun uploadEventPictureRemote (idEvento: String? = null, imageUri: Uri) {
@@ -117,7 +117,7 @@ class EventsDataFirebase(private val database: EventsRoomDb) {
         databaseRemoteEvents.child(evento_to_delete.id_evento).removeValue()
         databaseRemotePartecipazione.child(evento_to_delete.id_evento).removeValue()
 
-        // delete image from storage
+
         storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(evento_to_delete.foto)
         storageReference.delete()
     }

@@ -12,6 +12,8 @@ class ImageDataFirebase(private val database: EventsRoomDb) {
     val imageRef = Firebase.storage.reference
     var imageUrls = ArrayList<ImageUrlDb>()
 
+
+    //uso coroutine per esecuzione asincrona non bloccante per app
     fun getAllImages() = CoroutineScope(Dispatchers.IO).launch{
         delay(3000L)
         val list = ArrayList<ImageUrlDb>()
@@ -44,6 +46,8 @@ class ImageDataFirebase(private val database: EventsRoomDb) {
         }
     }
 
+
+    //funzione suspend per esecuzione asincrona
     suspend fun set_list(list: ArrayList<ImageUrlDb>)  {
         delay(3000L)
         this.imageUrls = list
