@@ -9,7 +9,7 @@ object RegistrationUtil {
     password che non matchano
     password minore di 6 caratteri
      */
-
+//per test
 
     fun validateRegistrationInput(
 
