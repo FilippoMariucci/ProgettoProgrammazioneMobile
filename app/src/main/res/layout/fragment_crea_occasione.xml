@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EventsFragments.crea_occasione">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/green_light"
+        tools:layout_editor_absoluteX="-51dp"
+        tools:layout_editor_absoluteY="136dp">
+
+        <TextView
+            android:id="@+id/titleCrea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/nightpumpkind_1gpgv"
+            android:paddingTop="12dp"
+            android:text="Cosa proponi di fare?"
+            android:textAlignment="center"
+            android:textColor="@color/green_dark"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/titoloEvento"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            app:counterMaxLength="27"
+            android:hint="Titolo"
+            app:startIconDrawable="@drawable/ic_title"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleCrea">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="27"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                android:fontFamily="@font/poppins" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/DescrizioneEvento"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            app:counterMaxLength="500"
+            app:startIconDrawable="@drawable/ic_baseline_description_24"
+            android:hint="Descrizione"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titoloEvento">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="500"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                android:fontFamily="@font/poppins" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/CittaEvento"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:hint="Città"
+            app:startIconDrawable="@drawable/ic_map"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DescrizioneEvento">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                android:fontFamily="@font/poppins" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/indirizzoEvento"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            app:startIconDrawable="@drawable/ic_baseline_streetview_24"
+            android:hint="Indirizzo"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CittaEvento">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                android:fontFamily="@font/poppins" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/npersoneEvento"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:hint="Numero persone"
+            android:inputType="number"
+            app:startIconDrawable="@drawable/ic_baseline_people_24"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/indirizzoEvento">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                android:fontFamily="@font/poppins" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/prezzoEvento"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:hint="Prezzo"
+            android:inputType="numberDecimal"
+            app:startIconDrawable="@drawable/ic_baseline_euro_symbol_24"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/npersoneEvento">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                android:fontFamily="@font/poppins" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dataEvento"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:hint="Data"
+            android:inputType="none"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/prezzoEvento">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/InputDataEvento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:backgroundTint="@color/grey"
+                    android:fontFamily="@font/poppins"
+                    android:text="Data"
+                    android:textAlignment="gravity"
+                    android:textColor="@color/browser_actions_title_color"
+                    app:icon="@drawable/ic_baseline_date_range_24"
+                    app:iconTint="@color/browser_actions_title_color" />
+
+                <TextView
+                    android:id="@+id/textDateEvento"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="0"
+                    android:autofillHints=""
+                    android:fontFamily="@font/poppins"
+                    android:hint="gg/mm/aaaa"
+                    android:padding="7dp"
+                    android:textAlignment="center"
+                    android:textSize="17sp"
+
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputCategories"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:hint="Categoria"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dataEvento"
+            app:startIconDrawable="@drawable/ic_categories">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteCategories"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins"
+                android:inputType="none"
+                android:text="Adventure" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLanguages"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:hint="Languages"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputCategories"
+            app:startIconDrawable="@drawable/ic_languages">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteLanguages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins"
+                android:inputType="none"
+                android:text="English" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/scegliImmagine"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Choose image"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_add_icon"
+            app:iconTint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/immagine" />
+
+        <Button
+            android:id="@+id/btnadd_evento"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="172dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/green_dark"
+            android:fontFamily="@font/nightpumpkind_1gpgv"
+            android:text="Aggiungi"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            app:cornerRadius="20dp"
+            app:iconTint="@color/green_dark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/errorMsg" />
+
+        <ImageView
+            android:id="@+id/immagine"
+            android:layout_width="153dp"
+            android:layout_height="118dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/image_not_found"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLanguages" />
+
+        <TextView
+            android:id="@+id/errorMsg"
+            android:layout_width="346dp"
+            android:layout_height="52dp"
+            android:fontFamily="@font/poppins"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/btnadd_evento"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scegliImmagine" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:layout_marginBottom="10dp"
+    android:nestedScrollingEnabled="false"
+    app:cardCornerRadius="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutCardEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/immagineEvento"
+            android:layout_width="301dp"
+            android:layout_height="291dp"
+            android:foregroundGravity="center_vertical|center_horizontal"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/no_photo">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/tvEventDesc"
+            android:layout_width="290dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="Party"
+            android:padding="5dp"
+            android:textColor="#151515"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/immagineEvento">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/dataEvento"
+            android:layout_width="277dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppins"
+            android:hint="gg/mm/aaaa"
+            android:padding="5dp"
+            android:textAlignment="viewStart"
+            android:textColor="#151515"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvEventDesc">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/prezzoEvento"
+            android:layout_width="121dp"
+            android:layout_height="33dp"
+            android:fontFamily="@font/poppins"
+            android:hint="__ €"
+            android:padding="5dp"
+            android:textAlignment="textEnd"
+            android:textColor="#151515"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/categoriaEvento"
+            app:layout_constraintTop_toBottomOf="@+id/dataEvento">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/categoriaEvento"
+            android:layout_width="146dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/poppins"
+            android:hint="Party"
+            android:padding="5dp"
+            android:textColor="#151515"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dataEvento"
+            app:layout_constraintVertical_bias="0.0">
+
+        </TextView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/buttonIminterest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/green_dark"
+            android:contentDescription=""
+            android:src="@drawable/ic_baseline_search_24"
+            app:layout_constraintBottom_toTopOf="@+id/tvEventDesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.578"
+            app:layout_constraintStart_toEndOf="@+id/skiphomeBtn"
+            app:tint="@android:color/white" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/skiphomeBtn"
+            android:layout_width="59dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="152dp"
+            android:backgroundTint="@color/white"
+            android:contentDescription=""
+            android:src="@drawable/ic_baseline_arrow_forward_24"
+            app:layout_constraintBottom_toTopOf="@+id/tvEventDesc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/green_dark" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

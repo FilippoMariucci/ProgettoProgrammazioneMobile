@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/icon_discover"
+        android:icon="@drawable/ic_discover"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/icon_add"
+        android:icon="@drawable/plus_icon_ok"
+        android:title="Add" />
+
+    <item
+        android:id="@+id/icon_user"
+        android:icon="@drawable/ic_user"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/icon_map"
+        android:icon="@drawable/ic_map"
+        android:title="Map">
+
+    </item>
+
+</menu>

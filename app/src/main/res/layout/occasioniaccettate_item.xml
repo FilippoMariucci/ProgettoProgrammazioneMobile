@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp"
+    app:cardPreventCornerOverlap="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="222dp">
+
+        <TextView
+            android:id="@+id/TitoloEventoAccettato"
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins"
+            android:hint="Titolo"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dataEventoAccettato">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/dataEventoAccettato"
+            android:layout_width="208dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins"
+            android:hint="Data"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <ImageButton
+            android:id="@+id/seeMore"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="16dp"
+
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/corner_radius"
+            android:fontFamily="@font/poppins_bold"
+            android:src="@drawable/ic_baseline_search_24"
+            app:layout_constraintEnd_toStartOf="@+id/cancelPartecipazione"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/prezzoEventoAccettato"
+            android:layout_width="40dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="36dp"
+            android:fontFamily="@font/poppins"
+            android:hint="__€"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/poppins"
+            android:hint="€"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/prezzoEventoAccettato">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/cittaEventoAccettato"
+            android:layout_width="231dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins"
+            android:hint="Citta"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TitoloEventoAccettato" />
+
+        <TextView
+            android:id="@+id/indirizzoEventoAccettato"
+            android:layout_width="231dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/poppins"
+            android:hint="Indirizzo"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cittaEventoAccettato" />
+
+        <ImageButton
+            android:id="@+id/cancelPartecipazione"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/corner_radius"
+            android:backgroundTint="@color/red"
+            android:src="@drawable/ic_baseline_free_cancellation_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

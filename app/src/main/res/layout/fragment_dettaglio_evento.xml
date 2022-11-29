@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EventsFragments.dettaglio_evento">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="@color/green_light"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/fotoEvento"
+                android:layout_width="412dp"
+                android:layout_height="246dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titolo_evento_dett" />
+
+            <TextView
+                android:id="@+id/titolo_evento_dett"
+                android:layout_width="386dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/nightpumpkind_1gpgv"
+                android:hint="Titolo evento"
+                android:textAlignment="center"
+                android:textColor="@color/green_dark"
+                android:textColorHint="@color/green_dark"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.205"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/persona_mancante_dett"
+                android:layout_width="191dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="Persone mancanti:"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fotoEvento" />
+
+            <TextView
+                android:id="@+id/indirizzo_dett"
+                android:layout_width="138dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="48dp"
+                android:fontFamily="@font/poppins"
+                android:text="Indirizzo:"
+                android:textColor="@color/black"
+                android:textSize="21sp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/categoria_evento_dett" />
+
+            <TextView
+                android:id="@+id/citta_dett"
+                android:layout_width="158dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Citta:"
+                android:textColor="@color/black"
+                android:textSize="21sp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                app:layout_constraintEnd_toStartOf="@+id/indirizzo_dett"
+                app:layout_constraintHorizontal_bias="0.529"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/categoria_evento_dett" />
+
+            <TextView
+                android:id="@+id/data_dett"
+                android:layout_width="297dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Data:"
+                android:textColor="@color/black"
+                android:textSize="21sp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.315"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/citta_dett" />
+
+            <TextView
+                android:id="@+id/categoria_evento_dett"
+                android:layout_width="263dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Categoria:"
+                android:textColor="@color/black"
+                android:textSize="21sp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.243"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/persona_mancante_dett" />
+
+            <TextView
+                android:id="@+id/lingua_evento_dett"
+                android:layout_width="142dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="Lingua:"
+                android:textColor="@color/black"
+                android:textSize="21sp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.133"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/desc_evento_dett" />
+
+            <TextView
+                android:id="@+id/prezzo_evento_dett"
+                android:layout_width="73dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="21sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lingua_evento_dett"
+                app:layout_constraintTop_toBottomOf="@+id/desc_evento_dett" />
+
+            <TextView
+                android:id="@+id/desc_evento_dett"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="Descrizione evento:"
+                android:textColor="@color/black"
+                android:textSize="21sp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.461"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/data_dett" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_partecipo_dett"
+                android:layout_width="191dp"
+                android:layout_height="53dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/green_dark"
+                android:fontFamily="@font/nightpumpkind_1gpgv"
+                android:text="Partecipo"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lingua_evento_dett" />
+
+            <TextView
+                android:id="@+id/npersone"
+                android:layout_width="54dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.188"
+                app:layout_constraintStart_toEndOf="@+id/persona_mancante_dett"
+                app:layout_constraintTop_toBottomOf="@+id/fotoEvento" />
+
+            <TextView
+                android:id="@+id/fullEventoText"
+                android:layout_width="273dp"
+                android:layout_height="41dp"
+                android:fontFamily="@font/poppins"
+                android:text="TextView"
+                android:textColor="@color/yellow"
+                android:textSize="16dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lingua_evento_dett" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</FrameLayout>

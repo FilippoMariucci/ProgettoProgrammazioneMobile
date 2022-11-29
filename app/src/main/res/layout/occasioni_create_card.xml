@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp"
+    app:cardPreventCornerOverlap="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="162dp">
+
+        <TextView
+            android:id="@+id/titoloEventoCreato"
+            android:layout_width="227dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="Titolo"
+            android:textColor="@color/green"
+            android:textSize="17dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/dataEventoCreato"
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/poppins"
+            android:text="25/12/2022"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titoloEventoCreato" />
+
+        <TextView
+            android:id="@+id/categoriaEventoCreato"
+            android:layout_width="159dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:hint="categoria"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="@+id/dataEventoCreato"
+            app:layout_constraintTop_toBottomOf="@+id/dataEventoCreato">
+
+        </TextView>
+
+        <ImageButton
+            android:id="@+id/deleteOccasione"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/corner_radius"
+            android:src="@drawable/ic_baseline_delete_forever_24"
+            android:textSize="9dp"
+            app:layout_constraintEnd_toStartOf="@+id/modficaOccasione"
+            app:layout_constraintHorizontal_bias="0.943"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/modficaOccasione"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/corner_radius"
+            android:src="@drawable/ic_baseline_edit_24"
+            android:text="MODIFICA"
+            android:textSize="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

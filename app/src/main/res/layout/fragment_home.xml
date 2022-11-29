@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".homeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/green_light"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categories"
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbars="horizontal"
+            android:verticalScrollbarPosition="defaultPosition"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvEvents"
+            android:layout_width="283dp"
+            android:layout_height="436dp"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="20sp"
+            android:background="@color/green_light"
+            android:foregroundGravity="center_horizontal"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="ifContentScrolls"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.326"
+            tools:listitem="@layout/event_item">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="398dp"
+            android:layout_height="35dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categories">
+
+            <TextView
+                android:id="@+id/refreshBtn"
+                android:layout_width="99dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="RELOAD"
+                android:textColor="@color/green_dark"
+                android:textSize="16sp"
+                tools:text="Refresh" />
+
+            <TextView
+                android:id="@+id/displayedEvents"
+                android:layout_width="296dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right|end"
+                android:fontFamily="@font/poppins"
+                android:padding="5dp"
+                android:text="All events"
+                android:textColor="@color/green_dark"
+                android:textAlignment="textEnd"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

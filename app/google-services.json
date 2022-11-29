@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "361551697777",
+    "project_id": "programmazionemobile-a1b11",
+    "storage_bucket": "programmazionemobile-a1b11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361551697777:android:52d9d24b1855cb03df88d0",
+        "android_client_info": {
+          "package_name": "com.example.progettoprogrammazionemobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "361551697777-o8phuthu55tife811kvrrvl2n0lujtlg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIWwjbWVVJ3rLxDUfLDaj5Z85u8T3sX1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "361551697777-o8phuthu55tife811kvrrvl2n0lujtlg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#978BC34A"
+    tools:context=".Login">
+
+
+    <TextView
+        android:id="@+id/occasioni_create_titolo"
+        android:layout_width="336dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="108dp"
+        android:fontFamily="@font/nightpumpkind_1gpgv"
+
+        android:text="Join our events"
+        android:textAlignment="center"
+        android:textColor="@color/green_dark"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="324dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_background"
+        android:backgroundTint="@color/grey"
+        android:fontFamily="@font/poppins"
+        android:hint="insert your email"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="#B6B6B6"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/occasioni_create_titolo"
+        app:layout_constraintVertical_bias="0.091">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="324dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/btn_background"
+        android:backgroundTint="@color/grey"
+        android:fontFamily="@font/poppins"
+        android:hint="insert your password"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="#B6B6B6"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toTopOf="@+id/loginbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintVertical_bias="0.255" />
+
+    <TextView
+        android:id="@+id/registrationRoot"
+        android:layout_width="250dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="44dp"
+        android:clickable="true"
+        android:fontFamily="@font/poppins"
+        android:text="Don't have an account? Register here"
+        android:textAlignment="center"
+        android:textColor="@color/green_dark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginbutton"
+        app:layout_constraintVertical_bias="0.075" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginbutton"
+        android:layout_width="158dp"
+        android:layout_height="58dp"
+        android:background="@drawable/btn_background"
+        android:backgroundTint="@color/green_dark"
+        android:fontFamily="@font/nightpumpkind_1gpgv"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="31sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.573">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

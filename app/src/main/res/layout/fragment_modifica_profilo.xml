@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragments.modifica_profilo">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="@color/green_light"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/modifica_profilo_sezione"
+                android:layout_width="315dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="44dp"
+                android:fontFamily="@font/nightpumpkind_1gpgv"
+                android:text="Modifica profilo"
+                android:textColor="@color/green_dark"
+                android:textSize="37sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.552"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/nome_modifica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="Nome"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/modifica_profilo_sezione"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/modifica_profilo_sezione"
+                app:layout_constraintTop_toBottomOf="@+id/modifica_profilo_sezione" />
+
+            <EditText
+                android:id="@+id/inputNomeModifica"
+                android:layout_width="284dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:paddingLeft="20dp"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.417"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nome_modifica" />
+
+            <TextView
+                android:id="@+id/cognome_modifica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Cognome"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/inputNomeModifica"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/inputNomeModifica"
+                app:layout_constraintTop_toBottomOf="@+id/inputNomeModifica" />
+
+
+            <EditText
+                android:id="@+id/cognomeInputModifica"
+                android:layout_width="284dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.425"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cognome_modifica" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butt_modifica"
+                android:layout_width="150dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/green_dark"
+                android:fontFamily="@font/nightpumpkind_1gpgv"
+                android:text="Modifica"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/inputDescrizioneModifica"
+                app:layout_constraintStart_toStartOf="@+id/inputDescrizioneModifica"
+                app:layout_constraintTop_toBottomOf="@+id/inputDescrizioneModifica" />
+
+            <TextView
+                android:id="@+id/Data_nascita_modifica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/poppins"
+                android:text="Data nascita"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/cognomeInputModifica"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/cognomeInputModifica"
+                app:layout_constraintTop_toBottomOf="@+id/cognomeInputModifica" />
+
+            <TextView
+                android:id="@+id/stato_modifica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins"
+                android:text="Stato"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/inputDataModifica"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/inputDataModifica"
+                app:layout_constraintTop_toBottomOf="@+id/inputDataModifica" />
+
+            <TextView
+                android:id="@+id/descrizione_modifica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins"
+                android:text="Descrizione"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/inputStatoModifica"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/inputStatoModifica"
+                app:layout_constraintTop_toBottomOf="@+id/inputStatoModifica" />
+
+            <EditText
+                android:id="@+id/inputDataModifica"
+                android:layout_width="284dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                android:ems="10"
+                android:inputType="date"
+                android:maxLength="10"
+                android:paddingLeft="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/Data_nascita_modifica"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/Data_nascita_modifica"
+                app:layout_constraintTop_toTopOf="@+id/Data_nascita_modifica" />
+
+            <EditText
+                android:id="@+id/inputStatoModifica"
+                android:layout_width="284dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/stato_modifica"
+                app:layout_constraintHorizontal_bias="0.111"
+                app:layout_constraintStart_toStartOf="@+id/stato_modifica"
+                app:layout_constraintTop_toBottomOf="@+id/stato_modifica" />
+
+            <EditText
+                android:id="@+id/inputDescrizioneModifica"
+                android:layout_width="289dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/grey"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:paddingLeft="20dp"
+                android:paddingRight="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/descrizione_modifica"
+                app:layout_constraintHorizontal_bias="0.005"
+                app:layout_constraintStart_toStartOf="@+id/descrizione_modifica"
+                app:layout_constraintTop_toBottomOf="@+id/descrizione_modifica" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+</FrameLayout>

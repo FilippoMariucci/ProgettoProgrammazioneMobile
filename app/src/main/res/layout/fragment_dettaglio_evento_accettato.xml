@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EventsFragments.dettaglio_evento_accettato">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/green_light"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/titoloDettaglioAccettato"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_bold"
+                android:hint="Titolo evento"
+                android:text="Festa di fine anno accademico"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.652"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/personeDettaglioAccettato"
+                android:layout_width="23dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="0"
+                android:textColor="@color/green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.018"
+                app:layout_constraintStart_toEndOf="@+id/generalTextView1"
+                app:layout_constraintTop_toBottomOf="@+id/titoloDettaglioAccettato" />
+
+            <TextView
+                android:id="@+id/generalTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:fontFamily="@font/poppins"
+                android:text="Persona mancanti:"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titoloDettaglioAccettato" />
+
+            <TextView
+                android:id="@+id/generalTextView5"
+                android:layout_width="93dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="Indirizzo:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/generalTextView4" />
+
+            <TextView
+                android:id="@+id/indirizzoDettaglioAccettato"
+                android:layout_width="245dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Indirizzo"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.39"
+                app:layout_constraintStart_toEndOf="@+id/generalTextView5"
+                app:layout_constraintTop_toBottomOf="@+id/cittaDettaglioAccettato" />
+
+            <TextView
+                android:id="@+id/generalTextView4"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Citta:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/generalTextView3" />
+
+            <TextView
+                android:id="@+id/cittaDettaglioAccettato"
+                android:layout_width="277dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Citta"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/generalTextView4"
+                app:layout_constraintTop_toBottomOf="@+id/categoriaDettaglioAccettato" />
+
+            <TextView
+                android:id="@+id/dataDettaglioAccettato"
+                android:layout_width="274dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Data"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.464"
+                app:layout_constraintStart_toEndOf="@+id/generalTV"
+                app:layout_constraintTop_toBottomOf="@+id/indirizzoDettaglioAccettato" />
+
+            <TextView
+                android:id="@+id/generalTV"
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Data:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/generalTextView5" />
+
+            <TextView
+                android:id="@+id/generalTextView2"
+                android:layout_width="189dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="Occasione creata da:"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/generalTextView1" />
+
+            <TextView
+                android:id="@+id/nomeUtenteDettaglioAccettato"
+                android:layout_width="157dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="nomeutente "
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/generalTextView2"
+                app:layout_constraintTop_toBottomOf="@+id/prezzodettaglioAccettato" />
+
+
+            <TextView
+                android:id="@+id/generalTextView3"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins"
+                android:text="Categoria:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/generalTextView2" />
+
+            <TextView
+                android:id="@+id/categoriaDettaglioAccettato"
+                android:layout_width="225dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins"
+                android:text="Categoria"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/generalTextView3"
+                app:layout_constraintTop_toBottomOf="@+id/nomeUtenteDettaglioAccettato" />
+
+            <TextView
+                android:id="@+id/generalTextView7"
+                android:layout_width="152dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="52dp"
+                android:fontFamily="@font/poppins"
+                android:text="Lingue Parlate:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/generalTV" />
+
+            <TextView
+                android:id="@+id/lingueDettaglioAccettato"
+                android:layout_width="189dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:fontFamily="@font/poppins"
+                android:text="English"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.605"
+                app:layout_constraintStart_toEndOf="@+id/generalTextView7"
+                app:layout_constraintTop_toBottomOf="@+id/dataDettaglioAccettato" />
+
+            <TextView
+                android:id="@+id/prezzodettaglioAccettato"
+                android:layout_width="85dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="68dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="right|center_vertical"
+                android:text="30€"
+                android:textColor="@color/black"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titoloDettaglioAccettato" />
+
+            <TextView
+                android:id="@+id/descrizioneDettaglioAccettato"
+                android:layout_width="364dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center_vertical"
+                android:text="Descrizione:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.68"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/generalTextView7" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="343dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/nightpumpkind_1gpgv"
+                android:text="Hai accettato di partecipare a "
+                android:textAlignment="center"
+                android:textColor="@color/green_dark"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</FrameLayout>

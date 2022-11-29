@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#978BC34A"
+        tools:context=".Registration">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="274dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="44dp"
+            android:fontFamily="@font/nightpumpkind_1gpgv"
+            android:text="Registration"
+            android:textColor="@color/green_dark"
+            android:textAlignment="center"
+            android:textSize="47dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="321dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/grey"
+            android:fontFamily="@font/poppins"
+            android:hint="insert your name"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registrationEmail">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/surname"
+            android:layout_width="321dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/grey"
+            android:fontFamily="@font/poppins"
+            android:hint="insert your surname"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nome">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/registrationEmail"
+            android:layout_width="321dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/grey"
+            android:fontFamily="@font/poppins"
+            android:hint="insert your email"
+            android:inputType="textEmailAddress"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="321dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/grey"
+            android:fontFamily="@font/poppins"
+            android:hint="insert your password"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/state">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/passconfirm"
+            android:layout_width="321dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/grey"
+            android:fontFamily="@font/poppins"
+            android:hint="confirm your password"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/state"
+            android:layout_width="321dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/grey"
+            android:hint="which state are you from"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/surname">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/dateofbirth"
+            android:layout_width="321dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:maxLength="10"
+            android:fontFamily="@font/poppins"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/grey"
+            android:hint="Date of birth gg/mm/aaaa"
+            android:inputType="date"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passconfirm">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="321dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/grey"
+            android:maxLength="500"
+            android:hint="little description of yourself"
+            android:inputType="textMultiLine"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateofbirth">
+
+        </EditText>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/registrationButton"
+            android:layout_width="163dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/green_dark"
+            android:fontFamily="@font/nightpumpkind_1gpgv"
+            android:text="Register"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/description"
+            app:layout_constraintHorizontal_bias="0.484"
+            app:layout_constraintStart_toStartOf="@+id/description"
+            app:layout_constraintTop_toBottomOf="@+id/description">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

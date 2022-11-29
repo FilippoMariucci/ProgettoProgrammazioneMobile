@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navgraph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.progettoprogrammazionemobile.homeFragment"
+        android:label="homeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_profilo"
+            app:destination="@id/profilo" />
+        <action
+            android:id="@+id/action_homeFragment_to_dettaglio_evento"
+            app:destination="@id/dettaglio_evento" />
+    </fragment>
+    <fragment
+        android:id="@+id/profilo"
+        android:name="com.example.progettoprogrammazionemobile.ProfileFragments.profilo"
+        android:label="fragment_profilo"
+        tools:layout="@layout/fragment_profilo" >
+        <action
+            android:id="@+id/action_profilo_to_modifica_profilo"
+            app:destination="@id/modifica_profilo" />
+        <action
+            android:id="@+id/action_profilo_to_occasioni_accettate"
+            app:destination="@id/occasioni_accettate" />
+        <action
+            android:id="@+id/action_profilo_to_occasioni_create"
+            app:destination="@id/occasioni_create" />
+    </fragment>
+    <fragment
+        android:id="@+id/modifica_profilo"
+        android:name="com.example.progettoprogrammazionemobile.ProfileFragments.modifica_profilo"
+        android:label="fragment_modifica_profilo"
+        tools:layout="@layout/fragment_modifica_profilo" />
+    <fragment
+        android:id="@+id/occasioni_accettate"
+        android:name="com.example.progettoprogrammazionemobile.EventsFragments.occasioni_accettate"
+        android:label="fragment_occasioni_accettate"
+        tools:layout="@layout/fragment_occasioni_accettate" />
+    <fragment
+        android:id="@+id/occasioni_create"
+        android:name="com.example.progettoprogrammazionemobile.EventsFragments.occasioni_create"
+        android:label="fragment_occasioni_create"
+        tools:layout="@layout/fragment_occasioni_create" />
+    <fragment
+        android:id="@+id/dettaglio_evento"
+        android:name="com.example.progettoprogrammazionemobile.EventsFragments.dettaglio_evento"
+        android:label="fragment_dettaglio_evento"
+        tools:layout="@layout/fragment_dettaglio_evento" >
+        <argument
+            android:name="titoloEventoPass"
+            app:argType="string" />
+    </fragment>
+</navigation>
