@@ -32,7 +32,7 @@ class Registration : AppCompatActivity() {
     }
 
     private fun registrationFunction() {
-        val textName = binding.nome.text.toString().trim()
+        val textName = binding.nome.text.toString().trim()   //con trim tolgo gli spazi sulle stringhe se sono presenti
         val textSurname = binding.surname.text.toString().trim()
         val textEmail = binding.registrationEmail.text.toString()
         val textState = binding.state.text.toString().trim()
@@ -41,21 +41,23 @@ class Registration : AppCompatActivity() {
         val textdateOfBirth = binding.dateofbirth.text.toString().trim()
         val description = binding.description.text.toString().trim()
         val check = checkFields(textName, textSurname, textEmail, textPassword, textConPassword, textdateOfBirth)
+        // con checkfields controllo che tutti i campi rispettino i vincoli decisi: lo uso come flag per registrare account
+        // se ha messo tutto bene,sennò prima di registrarlo deve inserire bene TUTTI i campi
 
         auth = Firebase.auth
 
-        if (check == true) {
-            val user = User(textName, textSurname, textConPassword, textdateOfBirth, textState, description)
+        if (check == true) {  //se ha messo tutto bene allora procedo con la fase di registrazione
+            val user = User(textName, textSurname, textConPassword, textdateOfBirth, textState, description) //cose che salvo di user che si registra
             auth.createUserWithEmailAndPassword(textEmail, textPassword).addOnCompleteListener(this) {
-                if (it.isSuccessful) {
+                if (it.isSuccessful) { //se user viene creato  con successo allora lo registro
                     val firebaseUser: FirebaseUser = it.result!!.user!!
                     database.child(firebaseUser.uid).setValue(
                         user)
-                    Toast.makeText(this, "You've been succesfully registred!", Toast.LENGTH_LONG).show()
-                    startActivity(Intent(this, Login::class.java))
+                    Toast.makeText(this, "You've been succesfully registred!", Toast.LENGTH_LONG).show() //gli dico è andato tutto bene
+                    startActivity(Intent(this, Login::class.java))  //lo mando al login con intent
                     finish()
                 }
-                else{
+                else{ //se il processo non va a buon fine...
                     Toast.makeText(this, "Sorry, something went wrong!", Toast.LENGTH_LONG).show()
                 }
             }
@@ -63,6 +65,8 @@ class Registration : AppCompatActivity() {
 
    }
 
+
+    //funzione che mi serve per validare i campi della registrazione
     private fun checkFields(textName: String, textSurname: String, textEmail: String, textPassword: String, textConPassword: String, textdateOfBirth: String): Boolean {
         if (textEmail.isEmpty()) {
             binding.registrationEmail.setError("email is required")
@@ -100,7 +104,7 @@ class Registration : AppCompatActivity() {
         }
 
         if (textConPassword.isEmpty()) {
-            binding.passconfirm.setError("Confirm your password please")
+            binding.passconfirm.setError("Confirm your password please!")
             binding.passconfirm.requestFocus()
             return false
 
@@ -111,18 +115,18 @@ class Registration : AppCompatActivity() {
             return false
         }
         else {
-            val year = Calendar.getInstance().get(Calendar.YEAR);
-            val current_year = textdateOfBirth.substringAfterLast('/')
-            if(current_year >= year.toString()) {
-                binding.dateofbirth.setError("Are you an alien?")
+            val year = Calendar.getInstance().get(Calendar.YEAR);  //anno in cui siamo
+            val current_year = textdateOfBirth.substringAfterLast('/')  //prendo anno del dato inserito
+            if(current_year >= year.toString()) {    //questo non può andar bene
+                binding.dateofbirth.setError("this is not possible")
                 binding.dateofbirth.requestFocus()
                 return false
             }
         }
 
         if(!textPassword.equals(textPassword)){
-            binding.passconfirm.setError("Passwords don't match!")
-            binding.passconfirm.setText(" ")
+            binding.passconfirm.setError("Passwords don't match!")  //se la conferma pass non corrsiponde
+            binding.passconfirm.setText(" ")                        // a quella inserita sopra nella form di registrazione
             return false
         }
         else

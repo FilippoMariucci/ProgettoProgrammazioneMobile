@@ -29,16 +29,18 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //remeber that we are gonna initializa biding before settinf the content view
+
+        //inizializziamo il binding
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.registrationRoot.setOnClickListener(){
-            startActivity(Intent(this, Registration::class.java))
+            startActivity(Intent(this, Registration::class.java)) //per andare su registrazione
         }
         binding.loginbutton.setOnClickListener{ loginFunction()}
 
-        // KEEP USER LOGG
+        // con queste linee vediamo se utente è gia loggato e in tal caso lo faccio andare
+        //direttamente su homeactivity
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
         if (currentUser !=null){startActivity(Intent(this, HomeActivity::class.java))
@@ -49,24 +51,24 @@ class Login : AppCompatActivity() {
     private fun loginFunction() {
         val email = binding.email.text.toString()
         val password = binding.password.text.toString().trim()
-        val check = checkFields(email, password)
+        val check = checkFields(email, password)  //flag per vedere se ha inserito bene
 
         auth = FirebaseAuth.getInstance()
 
-        if(check == true){
+        if(check == true){  // se ha inserito bene mail e pass vado oltre sennò non inizio per niente questa funzione
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this){
-                if(it.isSuccessful){
+                if(it.isSuccessful){ // se è gia registrato un utente con queste mail e pass allora faccio login e lo mando a home
                     val user = auth.currentUser
                     val userReference = database?.child(user?.uid!!)
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
                 }
-                else{
+                else{  // se non esiste già utente con quella mail allora si deve prima registrare e non posso mandarlo alla home
                     Toast.makeText(this, "You're not registred yet", Toast.LENGTH_LONG).show()
                 }
             }
         }
-    }
+    }  //fine f.ne di login
 
 
     private fun checkFields(textEmailInfo: String, pass:String): Boolean {
@@ -77,7 +79,7 @@ class Login : AppCompatActivity() {
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(textEmailInfo).matches()) {
-            binding.email.setError("Email missing @!")
+            binding.email.setError("Email missing @!")  // gli dico che manca proprio "identificatore" di una vera mail
             binding.email.requestFocus()
             return false
         }

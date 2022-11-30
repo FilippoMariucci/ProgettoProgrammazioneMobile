@@ -10,22 +10,20 @@ import com.example.progettoprogrammazionemobile.model.Partecipazione
 
 class EventsRepository(private val database: EventsRoomDb) {
 
-    // to avoid mismatch problem
-    var eventsData = EventsDataFirebase(database)
-    var events: LiveData<List<EventoDb>> = database.eventoDao().getAllEvents()
-    lateinit var evento_to_delete : EventoDb
-    //var filtered: LiveData<List<EventoDb>> = database.eventoDao().filterCategory("Adventure")
+
+    var eventsData = EventsDataFirebase(database) //qui richiamo Events data firebase con database passato
+    var events: LiveData<List<EventoDb>> = database.eventoDao().getAllEvents()  //la uso per leggere perche è live data e var
+    lateinit var evento_to_delete : EventoDb  //tabella room degli eventi
 
     fun getDataFromRemote() {
-       database.clearAllTables()
-//        eventsData.getAllEvents()
-        var list = eventsData.boh()
+       database.clearAllTables()  //pulisco tabelle del db room
+
+        var list = eventsData.boh()  //funzione in Events data firebase che torna un flag booleano che uso in if sotto
         var prova = ArrayList<EventoDb>()
-        if(list) {prova = eventsData.getList()}
+        if(list) {prova = eventsData.getList()} //su prova ci salvo eventi con info
         for (evento in prova){
-//            val url_storage = "gs://programmazionemobile-a1b11.appspot.com/Users/${evento.id_evento}"
-//            evento.foto = url_storage
-            Log.d("giacomo", "$evento")
+
+            Log.d("okok", "$evento")
             database.eventoDao().insert(evento)
         }
     }
@@ -36,8 +34,7 @@ class EventsRepository(private val database: EventsRoomDb) {
     }
 
     fun insert(model: EventoDb, imageUri: Uri) {
-        /*val url_storage = "gs://programmazionemobile-a1b11.appspot.com/Users/${model.id_evento}"
-        model.foto = url_storage*/
+
         database.eventoDao().insert(model)
         eventsData.inserEventRemote(model, imageUri)
     }
@@ -58,7 +55,9 @@ class EventsRepository(private val database: EventsRoomDb) {
         return database.eventoDao().getEventoFromId(idEvento)
     }
 
-    /* CALL DAO TO UPDATE FIELDS */
+
+
+    //funzioni che richiamano funzioni del dao per fare aggiornamenti
     fun updateTitle(titolo: String, idEvento: String) {
         database.eventoDao().updateTitle(titolo, idEvento)
     }

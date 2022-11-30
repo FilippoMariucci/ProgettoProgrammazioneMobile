@@ -17,13 +17,13 @@ import kotlin.collections.ArrayList
 
 class eventViewModel(application: Application) : AndroidViewModel(application) {
 
-    var readEventData: LiveData<List<EventoDb>>
+    var readEventData: LiveData<List<EventoDb>> // è live data e var perchè viene letto e basta
     private val eventsRepository: EventsRepository
     lateinit var imageUri: Uri
 
-    val filterEventsLiveData = MutableLiveData<List<EventoDb>>()
+    val filterEventsLiveData = MutableLiveData<List<EventoDb>>()  // val e mutable perche leggo e scrivo
     val userEvent = MutableLiveData<List<EventoDb>>()
-    var eventoBeforeUpdate = EventoDb(
+    var eventoBeforeUpdate = EventoDb(  //parametri che passo a questo costruttore
         "",
         "null",
         "null",
@@ -38,35 +38,32 @@ class eventViewModel(application: Application) : AndroidViewModel(application) {
         "null"
     )
 
-    private var debouncePeriod: Long = 500
-    private var searchJob: Job? = null
+    private var debouncePeriod: Long = 500  // quanto aspetto?? mi serve dopo
+    private var searchJob: Job? = null  //particolare interfaccia per job in background
 
     init {
         eventsRepository = EventsRepository(EventsRoomDb.getDatabase(application))
         Log.d("events", "${eventsRepository.events}")
         readEventData = eventsRepository.events
         Log.d("pippo", "$readEventData")
-        //refreshDataFromRepository()
+
     }
 
+    //richiamo funzione dell'events repository per fare get di dati
     fun getDataFromRemote() {
         viewModelScope.launch(Dispatchers.IO){
             eventsRepository.getDataFromRemote()
         }
-    }
-
-//    fun filterEvents(titleCat :String) : LiveData<List<EventoDb>> {
-//        val lista = eventsRepository.filterCat(titleCat)
-//        return lista
-//    }
+    }  //la uso dopo per altra funzione che la chiamerò refresh
 
 
 
+     //qui uso interfaccia job
     fun onFilterQuery(titleCat: String) {
-            searchJob?.cancel()
+            searchJob?.cancel() //possibilità di annullare il job
             searchJob = viewModelScope.launch {
-                delay(debouncePeriod)
-                if (titleCat != "") {
+                delay(debouncePeriod)  //ritarda la coroutine per un certo tempo che decido io con parametro
+                if (titleCat != "") {  // se  cerco qualcosa non  nullo allora va avanti
                     fetchEventByQuery(titleCat)
                 }
             }
@@ -74,38 +71,36 @@ class eventViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun fetchEventByQuery(query: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val filtered = eventsRepository.filterCat(query)
+            val filtered = eventsRepository.filterCat(query)  //prendo tutto dalla tabella eventi dove faccio ricerca su una certa categpria
             filterEventsLiveData.postValue(filtered)
         }
     }
 
     fun refreshFeed() {
-        this.getDataFromRemote()
+        this.getDataFromRemote()  //funzione definita sopra
     }
 
 
-    /* ------------------------------
-    FUN TO SAVE EVENT
-    ---------------------------------
-     */
+
+    //funzione per salvare un evento
     fun saveEvento(model: EventoDb) {
         viewModelScope.launch(Dispatchers.IO) {
             eventsRepository.insert(model, imageUri)
         }
     }
     fun setUri(imageUri: Uri) {
-        this.imageUri = imageUri
+        this.imageUri = imageUri  // variabile definita all'inizio
     }
     fun getDateTimeCalendar(): ArrayList<Int> {
         val cal = Calendar.getInstance()
-        var array = arrayListOf<Int>()
-        var day = cal.get(Calendar.DAY_OF_MONTH)
+        var array = arrayListOf<Int>()  //per salvare info sulla data
+        var day = cal.get(Calendar.DAY_OF_MONTH)  //prendo tutto quello che mi interessa salvare
         var month = cal.get(Calendar.MONTH)
         var year = cal.get(Calendar.YEAR)
         var hour = cal.get(Calendar.HOUR)
         var minute = cal.get(Calendar.MINUTE)
         Log.d("datainserimento", "$day $month $year")
-        array.add(day)
+        array.add(day)  //inserisco nell'array queste info sulla data ,che sono tutti interi per come ho definito array
         array.add(month)
         array.add(year)
         array.add(hour)
@@ -113,6 +108,7 @@ class eventViewModel(application: Application) : AndroidViewModel(application) {
         return array
     }
 
+    //per eliminare un certo evento
     fun deleteEvent(idEvento: String, uid:String) {
         viewModelScope.launch(Dispatchers.IO) {
             eventsRepository.delete(idEvento)
@@ -121,6 +117,7 @@ class eventViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    //prendo gli eventi di un certo user tramite il suo id
     fun getUserEvent(uid: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val list = eventsRepository.getUserEvent(uid)
@@ -128,6 +125,7 @@ class eventViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    //per ritrovare il preciso  evento che voglio andare  a modificare
     fun eventoToUpdate(idEvento: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val event = eventsRepository.eventoToUpdate(idEvento)
@@ -136,9 +134,10 @@ class eventViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 
-    /* -------------------
-    UPDATE CALLS TO REPOSITORY
-    ------------------------*/
+
+
+    // FUNZIONI CHE SERVONO PER AGGIORNARE I CAMPI DI DETTAGLIO DI UN EVENTO
+
     fun updateTitle(titolo: String, idEvento: String) {
         viewModelScope.launch(Dispatchers.IO) {
             eventsRepository.updateTitle(titolo, idEvento)
@@ -191,6 +190,7 @@ class eventViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // serve per aggiungere una prenotazione ad un determinato evento
     fun addPartecipazione(idEvento: String, partecipazione: Partecipazione) {
         viewModelScope.launch(Dispatchers.IO) {
             eventsRepository.addPartecipazione(idEvento, partecipazione)

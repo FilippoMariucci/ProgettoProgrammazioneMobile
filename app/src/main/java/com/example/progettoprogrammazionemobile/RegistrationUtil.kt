@@ -4,12 +4,13 @@ object RegistrationUtil {
 
     private val existingEmail = listOf("test1@gmail.com", "test2@gmail.com")
     /*
-    ad esempio input non valido se
+    test da fare come  esempio???
+    input non valido se
     email o password vuoti,
     password che non matchano
     password minore di 6 caratteri
      */
-//per test
+//per test da fare
 
 
     fun validateRegistrationInput(

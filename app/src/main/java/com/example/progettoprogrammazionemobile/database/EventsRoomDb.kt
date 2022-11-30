@@ -7,7 +7,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.progettoprogrammazionemobile.database.ImageUrlDb
 
-//entities=arrayOf(Contact::class)
+//dichiaro un db e le sue tabelle
 @Database(entities = [EventoDb::class, ImageUrlDb::class], version = 3, exportSchema = false)
 abstract class EventsRoomDb : RoomDatabase() {
 
@@ -18,8 +18,8 @@ abstract class EventsRoomDb : RoomDatabase() {
         private var INSTANCE: EventsRoomDb? =  null
 
         fun getDatabase(context: Context): EventsRoomDb {
-            // if the INSTANCE is not null, then return it,
-            // if it is, then create the database
+            //se istanza non è nulla lo ritorno
+               //se è nulla allora creo db
             return INSTANCE ?: synchronized(this){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,

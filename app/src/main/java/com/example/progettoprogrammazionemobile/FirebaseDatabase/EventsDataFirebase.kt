@@ -29,7 +29,7 @@ class EventsDataFirebase(private val database: EventsRoomDb) {
 
     fun getList(): ArrayList<EventoDb> {
         Log.d("getlist", "${this.eventList}")
-        return this.eventList
+        return this.eventList  //lista eventi  con le info ritornata ritornata
     }
 
     fun boh(): Boolean {
@@ -61,7 +61,7 @@ class EventsDataFirebase(private val database: EventsRoomDb) {
     }
 
 
-
+  //la uso sopra in altra funzione
     fun getEvents() {
         databaseRemoteEvents.get().addOnSuccessListener {
             events ->
@@ -79,7 +79,7 @@ class EventsDataFirebase(private val database: EventsRoomDb) {
         }
         Log.d("prova4", "${eventList}")
         Thread.sleep(3000)
-    }
+    }  //fine getevents
 
     private fun setList(event: ArrayList<EventoDb>){
         this.eventList = event

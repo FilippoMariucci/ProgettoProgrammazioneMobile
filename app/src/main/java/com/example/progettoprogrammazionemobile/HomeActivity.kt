@@ -10,7 +10,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
 
-
+//questi sono i fragment su cui voglio navigare tramite bottom app bar
     private val homeFragment = com.example.progettoprogrammazionemobile.homeFragment()
     private val userFragment = profilo()
     private val creaOccasioneFragment = crea_occasione()
@@ -32,8 +32,8 @@ class HomeActivity : AppCompatActivity() {
     val navListener = BottomNavigationView.OnNavigationItemSelectedListener{
         when(it.itemId){
             R.id.icon_user -> {
-                currrentFragment = userFragment
-            }
+                currrentFragment = userFragment // se sono su user fragment allora in evidenza c'è icona user
+            }                                 //stesso ragionamento su fragment successivi e relative icone della bottom app bar
             R.id.icon_add -> {
                 currrentFragment = creaOccasioneFragment
             }
