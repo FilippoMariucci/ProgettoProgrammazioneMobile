@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.progettoprogrammazionemobile.model.Evento
 
+
+//qui ci sono varie query che mi servono e che lavorano sulla tabella degli eventi
 @Dao
 interface EventoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -37,7 +39,9 @@ interface EventoDao {
     fun urlImageFromId(id: String) :String
 
 
-    /*----------UPDATE FIELDS QUERIES-----------*/
+
+
+    // query per effettuare modifiche di campi che sono stringhe
     @Query("UPDATE evento_table SET titolo = :titolo WHERE id_evento = :id_evento")
     fun updateTitle(titolo: String, id_evento: String)
     @Query("UPDATE evento_table SET categoria = :cat WHERE id_evento = :id_evento")
@@ -57,7 +61,5 @@ interface EventoDao {
     @Query("UPDATE evento_table SET n_persone = :npers WHERE id_evento = :id_evento")
     fun updateNPersone(npers: String, id_evento: String)
 
-//    @Query("SELECT * FROM evento_table")
-//    fun getUserEvent(id_user: String): LiveData<List<EventoDb>>
 
 }

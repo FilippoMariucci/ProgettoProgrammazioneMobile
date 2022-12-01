@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+//tabella che contiene i vari dati degli eventi
 @Entity(tableName = "evento_table")
 data class EventoDb (
     @PrimaryKey @ColumnInfo(name = "id_evento")

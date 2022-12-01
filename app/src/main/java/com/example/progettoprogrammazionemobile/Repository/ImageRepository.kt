@@ -8,19 +8,19 @@ import com.example.progettoprogrammazionemobile.database.ImageUrlDb
 
 class ImageRepository(private val database: EventsRoomDb) {
 
-    // to avoid mismatch problem
+    // per evitare possibili problemi di corrispondenza
     var imageData = ImageDataFirebase(database)
     val imagesUrls: LiveData<List<ImageUrlDb>> = database.imageDao().getAllImagesUrl()
     val imageEvent =  MutableLiveData<ImageUrlDb>()
 
+
+    //cancellato f.ne precedente
+
     fun getDataFromRemote() {
         var prova = ArrayList<ImageUrlDb>()
 
-        imageData.getAllImages()
-//        prova = imageData.get_list()
-//        Log.d("imagesprova", "$prova")
-//        for (image in prova){
-//            database.imageDao().insert(image)
+        imageData.getAllImages() //funzione che serve a recuparare immagini
+
         }
 
 

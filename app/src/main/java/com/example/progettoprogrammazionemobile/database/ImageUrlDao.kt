@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.progettoprogrammazionemobile.database.ImageUrlDb
 
+
+//query che mi servono per lavorare sulle immagini
 @Dao
 interface ImageUrlDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)

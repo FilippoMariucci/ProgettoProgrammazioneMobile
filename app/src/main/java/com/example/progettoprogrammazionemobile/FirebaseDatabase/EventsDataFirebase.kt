@@ -126,7 +126,7 @@ class EventsDataFirebase(private val database: EventsRoomDb) {
         databaseRemoteEvents.child(idEvento).updateChildren(event)
     }
 
-    fun addPartecipazioneRemote(idEvento: String, partecipazione: Partecipazione) {
+    fun addPartecipazioneRemote(idEvento: String, partecipazione: Partecipazione) { //scrivo su firebase
         databaseRemotePartecipazione.child(idEvento).setValue(partecipazione)
     }
 
