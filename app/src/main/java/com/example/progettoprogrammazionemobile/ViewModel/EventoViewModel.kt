@@ -16,52 +16,55 @@ class EventoViewModel: ViewModel() {
     private lateinit var reference: DatabaseReference
     private lateinit var storeRef : StorageReference
     private lateinit var imageUri: Uri
-    private lateinit var listPartecipanti : ArrayList<String>
-    lateinit var creaOccasione : crea_occasione
+    private lateinit var listPartecipanti : ArrayList<String>  // vedere meglio dopo
+    lateinit var creaOccasione : crea_occasione  // vedere meglio dopo
     private lateinit var  databaseReferenceEvento: DatabaseReference
     private lateinit var  storageReference: StorageReference
     private lateinit var auth: FirebaseAuth
 
 
 
+   //proviamola
     fun saveEvent(event_to_save: Evento) {
-            var ritorno = false
-            reference = FirebaseDatabase.getInstance().getReference("Evento")
-            event_to_save.id_evento = reference.push().getKey();
+            var ritorno = false  //serve per fare un check dopo
+            reference = FirebaseDatabase.getInstance().getReference("Evento") //mi metto su questo path
+            event_to_save.id_evento = reference.push().getKey(); //prendo idevento e lo uso per fare "qualcosa"
 
             val url_storage = "gs://programmazionemobile-a1b11.appspot.com/Users/ + ${event_to_save.id_evento}"
-            event_to_save.foto = url_storage
+            event_to_save.foto = url_storage //setto il campo foto dell'evento
 
-            uploadEventPicture(event_to_save.id_evento)
+            uploadEventPicture(event_to_save.id_evento) //funzione definita più sotto nella classe
 
-            if (event_to_save.id_evento != null) {
+            if (event_to_save.id_evento != null) { //procedo solo se effetivamente cerco di inserire qualcosa che "esiste " e non è nullo
                 reference.child(event_to_save.id_evento!!).setValue(event_to_save)
                     .addOnCompleteListener {
-                        if (it.isSuccessful) {
+                        if (it.isSuccessful) { //se va tutto bene il flag è true
                             ritorno = true
                         }
                     }.addOnFailureListener {
-                        ritorno = false
+                        ritorno = false  //se non va tutto bene allora il flag è false
                     }
             }
-            print(ritorno)
-        }
+            print(ritorno)  //vedo cosa succede
+        } //fine funzione saveevento
+
+
 
     fun setUri(imageUri: Uri){
-        this.imageUri = imageUri
+        this.imageUri = imageUri  //setta la variabile definita all'inizio a quella passata come parametro
     }
 
 
-    // upload su storage
+     //fa upload sullo storage
     fun uploadEventPicture (idEvento: String ?= null) {
         auth = FirebaseAuth.getInstance()
         storageReference = FirebaseStorage.getInstance().getReference("Users/" + idEvento)
         storageReference.putFile(imageUri)
     }
 
-    fun getDateTimeCalendar(): ArrayList<Int> {
+    fun getDateTimeCalendar(): ArrayList<Int> { //stessa funzione usata in altra classe
         val cal = Calendar.getInstance()
-        var array = arrayListOf<Int>()
+        var array = arrayListOf<Int>()  // ci vado a salvare info su una certa data
         var day = cal.get(Calendar.DAY_OF_MONTH)
         var month = cal.get(Calendar.MONTH)
         var year = cal.get(Calendar.YEAR)

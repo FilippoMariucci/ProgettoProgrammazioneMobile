@@ -15,22 +15,23 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class imageViewModel(application: Application) : AndroidViewModel(application) {
-
+                     //per mantenere stato globale appllicazione (come trovato nella docs associata a questa classe)
     var readImageData: LiveData<List<ImageUrlDb>>
-    lateinit var ImageEvent: LiveData<ImageUrlDb>
+    lateinit var ImageEvent: LiveData<ImageUrlDb>  //sono livedata perchè sono per leggere
     private val imagesRepository: ImageRepository
 
+    //usato init perche suggeriva ide di usarlo
     init {
         imagesRepository = ImageRepository(EventsRoomDb.getDatabase(application))
         Log.d("images", "${imagesRepository.imagesUrls}")
         readImageData = imagesRepository.imagesUrls
         Log.d("pippoimage", "$readImageData")
-        //refreshDataFromRepository()
+
     }
 
     fun getDataFromRemote() {
         viewModelScope.launch(Dispatchers.IO){
-            imagesRepository.getDataFromRemote()
+            imagesRepository.getDataFromRemote() //serev a recuperare immagini
         }
     }
 
