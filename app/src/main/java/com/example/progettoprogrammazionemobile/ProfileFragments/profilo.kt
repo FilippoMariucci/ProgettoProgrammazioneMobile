@@ -28,7 +28,7 @@ class profilo : Fragment()  {
         savedInstanceState: Bundle?
     ): View? {
         auth = FirebaseAuth.getInstance()
-        uid = auth.currentUser?.uid.toString().trim()
+        uid = auth.currentUser?.uid.toString().trim()  //ekimina spazi sulla stringa
         _binding = FragmentProfiloBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -38,25 +38,28 @@ class profilo : Fragment()  {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        FirebaseDatabase.getInstance().getReference("Users").child(uid).get().addOnSuccessListener {
-//            binding.nomeProfilo.setText("${it.child("name").getValue()}")
-//        }
 
+        //sotto i bottoni  che vedo nella schermata "profilo " con le relative azioni
+
+        //per andare su frag di modifica
         val button_mod = binding.modificaprofiloButt
         button_mod.setOnClickListener{
             if(isAdded)  fragmentManager?.beginTransaction()?.replace(R.id.myNavHostFragment, modifica_profilo())?.commit()
-        }
+        }                                                                                     //mi porta a questo fragment
 
+        //per vedere a cosa ho scelto di partecipare
         val button_occas_accett = binding.occasioniAccettateProf
         button_occas_accett.setOnClickListener{
             fragmentManager?.beginTransaction()?.replace(R.id.myNavHostFragment, occasioni_accettate())?.commit()
         }
+
+        //per vedere eventi che ho creato
         val button_occas_create = binding.occasionicreateProfilo
         button_occas_create.setOnClickListener{
             fragmentManager?.beginTransaction()?.replace(R.id.myNavHostFragment, occasioni_create())?.commit()
         }
 
-        // LOGOUT
+        // questo per fare logout e tornare all'activity di login con intent
         binding.btnLogout.setOnClickListener{
             auth.signOut()
             val intent = Intent (getActivity(), Login::class.java)

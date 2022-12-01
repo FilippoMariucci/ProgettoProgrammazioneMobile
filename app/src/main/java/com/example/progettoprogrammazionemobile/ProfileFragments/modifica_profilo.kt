@@ -14,7 +14,7 @@ import com.google.firebase.database.*
 class modifica_profilo : Fragment(R.layout.fragment_modifica_profilo) {
     private var _binding : FragmentModificaProfiloBinding? = null
     private val binding get() = _binding!!
-    //private lateinit var binding: FragmentModificaProfiloBinding
+
     private lateinit var auth: FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
     private lateinit var dialog : Dialog
@@ -33,7 +33,7 @@ class modifica_profilo : Fragment(R.layout.fragment_modifica_profilo) {
         auth = FirebaseAuth.getInstance()
         uid = auth.currentUser?.uid.toString()
         databaseReference = FirebaseDatabase.getInstance().getReference("Users")
-        if(uid.isNotEmpty()){
+        if(uid.isNotEmpty()){ //se non è ninete allora cerco i dati
             getUserData()
         }
     }
@@ -52,14 +52,17 @@ class modifica_profilo : Fragment(R.layout.fragment_modifica_profilo) {
                     val birth = binding.inputDataModifica.text.toString()
                     val state = binding.inputStatoModifica.text.toString()
                     val description = binding.inputDescrizioneModifica.text.toString()
-                    if (checkFields(name, surname, birth))  updateData(name, surname, birth, state, description)
+                    if (checkFields(name, surname, birth))  updateData(name, surname, birth, state, description)  //faccio update dei dati solo se rispettano i vinvoli di scrittura
                 }
             }
             override fun onCancelled(error: DatabaseError) {
             }
         })
-    }
+    }  //fine f.ne getuserdata
 
+
+
+    //per controllare che i dati inseriti vadano bene (come nella registrazione in pratica)
     private fun checkFields(textName: String, textSurname: String, textdateOfBirth: String): Boolean {
         if (textName.isEmpty()) {
             binding.inputNomeModifica.setError("Name is required")
@@ -80,10 +83,13 @@ class modifica_profilo : Fragment(R.layout.fragment_modifica_profilo) {
         else
             return true
     }
+
+
+
+
+    //per salvare modifche dei dati su firebase
     private fun updateData(name: String, surname: String, birth: String, state: String, description: String) {
-//val firebaseAuth = FirebaseAuth.getInstance()
-//val database = FirebaseDatabase.getInstance()
-//val db = database.getReference()
+
         val auth = FirebaseAuth.getInstance()
         val uid = auth.currentUser?.uid.toString().trim()
         val databaseRef = FirebaseDatabase.getInstance().getReference("Users")
@@ -96,10 +102,10 @@ class modifica_profilo : Fragment(R.layout.fragment_modifica_profilo) {
             "description" to description
         )
         userRef.updateChildren(user).addOnSuccessListener {
-            Toast.makeText(this.requireContext(), "Succesfuly updated", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this.requireContext(), "Succesfuly updated", Toast.LENGTH_SHORT).show() //se va tutto bene
             fragmentManager?.beginTransaction()?.replace(R.id.myNavHostFragment, profilo())?.commit()
         }.addOnFailureListener{
-            Toast.makeText(this.requireContext(), "Failed to update", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this.requireContext(), "Failed to update", Toast.LENGTH_SHORT).show()  //se va male qualcosa
         }
     }
 
