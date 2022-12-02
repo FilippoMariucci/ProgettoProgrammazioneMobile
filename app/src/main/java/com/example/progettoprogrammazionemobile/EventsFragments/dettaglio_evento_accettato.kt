@@ -48,6 +48,8 @@ class dettaglio_evento_accettato : Fragment() {
         getEventData()
     }
 
+
+    //per leggere tutti i dati di un evento a cui mi sono prenotato
     private fun getEventData() {
         databaseRefEvent.child(idEvento).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -57,7 +59,7 @@ class dettaglio_evento_accettato : Fragment() {
                         user = snapshot.getValue(User::class.java)!!
                         userName = user.name.toString()
                         userSurname = user.surname.toString()
-                        stringa = "$userName $userSurname"
+                        stringa = "$userName $userSurname"  //chi ha creato evento
                         Log.d("Strigna", "$stringa")
                         binding.titoloDettaglioAccettato.setText(evento.titolo)
                         binding.prezzodettaglioAccettato.setText(evento.costo + "€")
@@ -68,10 +70,10 @@ class dettaglio_evento_accettato : Fragment() {
                             val size = listPartecipanti.size
                             var partecipanti = 0
                             for (i in 0..size-1) {
-                                if (listPartecipanti[i] != null) partecipanti += 1
+                                if (listPartecipanti[i] != null) partecipanti += 1 //partecipanti attualmente prenotati
                             }
-                            val persone = npersone?.minus(partecipanti)
-                            if (persone != null) {
+                            val persone = npersone?.minus(partecipanti)  //posti ancora  mancanti (cioè ancora disponibili)
+                            if (persone != null) { //se non restano 0 posti
                                 binding.personeDettaglioAccettato.setText(persone.toString())
                             }
                         }
@@ -79,7 +81,7 @@ class dettaglio_evento_accettato : Fragment() {
                         binding.indirizzoDettaglioAccettato.setText(evento.indirizzo)
                         binding.cittaDettaglioAccettato.setText(evento.citta)
                         binding.dataDettaglioAccettato.setText(evento.data_evento)
-                        binding.nomeUtenteDettaglioAccettato.setText(stringa)
+                        binding.nomeUtenteDettaglioAccettato.setText(stringa)  //chi ha creato evento a cui partecipo
                         binding.categoriaDettaglioAccettato.setText(evento.categoria)
                         binding.lingueDettaglioAccettato.setText(evento.lingue)
                         binding.descrizioneDettaglioAccettato.setText(evento.descrizione)

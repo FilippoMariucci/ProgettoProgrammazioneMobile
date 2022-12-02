@@ -51,7 +51,7 @@ class modifica_occasione : Fragment(R.layout.fragment_modifica_occasione), DateP
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflating del layout
         val arguments = this.arguments
         val argsEvento = arguments?.get("idEvento")
         idEvento = argsEvento.toString()
@@ -106,13 +106,13 @@ class modifica_occasione : Fragment(R.layout.fragment_modifica_occasione), DateP
 
 
     private fun getEventData(idEvento: String) {
-        // get event from database
+        // get event pesca dal database dati necessari da mostrare prima di modificare , cioè mostra i dati attuali sull'evento
         vm.eventoToUpdate(idEvento)
         val eventoToEdit = vm.eventoBeforeUpdate
         databaseRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 evento = snapshot.getValue(Evento::class.java)!!
-                //Log.d("evento", "$evento")
+
                 val languages = resources.getStringArray(R.array.languages)
                 val categories = resources.getStringArray(R.array.categories)
                 val arrayLanguagesAdapter = ArrayAdapter(
@@ -155,6 +155,7 @@ class modifica_occasione : Fragment(R.layout.fragment_modifica_occasione), DateP
 
                     var check = true
 
+                    //qui faccio i vari  e soliti controlli sui campi inseriti in input
                     if (nPersone.isEmpty()) {
                         binding.errorMsg.setText("Aggiungi il numero di persone richiesto per l'evento!")
                         check = false
@@ -193,7 +194,7 @@ class modifica_occasione : Fragment(R.layout.fragment_modifica_occasione), DateP
                             check = false
                             }
                         }
-                    if(check) {
+                    if(check) {  //se non ci sono problemi sui campi inseriti allora aggiorno
                         updateEvent(
                             eventoToEdit,
                             idEvento,
@@ -208,7 +209,7 @@ class modifica_occasione : Fragment(R.layout.fragment_modifica_occasione), DateP
                             data
                         )
                     }
-                }
+                }  //fine setonclick sul bottone modifica
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -216,6 +217,7 @@ class modifica_occasione : Fragment(R.layout.fragment_modifica_occasione), DateP
         })
     }
 
+    //funzione che fa update dei dati dell'evento
     private fun updateEvent(
         eventoToEdit: EventoDb, idEvento: String, titolo: String,
         descrizione: String, citta: String, categoria: String,
@@ -234,7 +236,8 @@ class modifica_occasione : Fragment(R.layout.fragment_modifica_occasione), DateP
             "n_persone" to nPersone
         )
 
-            // Local Update checking different fields before and after
+
+            //modifico i campi che effettivamente sono stati cambiati (se sono rimasti uguali no chiamo update )
             if (eventoToEdit.titolo != titolo) vm.updateTitle(titolo, idEvento)
             if (eventoToEdit.categoria != categoria) vm.updateCategory(categoria, idEvento)
             if (eventoToEdit.citta != citta) vm.updateCitta(citta, idEvento)
@@ -248,11 +251,9 @@ class modifica_occasione : Fragment(R.layout.fragment_modifica_occasione), DateP
             vm.updateEventRemote(event, idEvento)
             Toast.makeText(this.requireContext(),"Evento modificato con successo", Toast.LENGTH_SHORT).show()
             fragmentManager?.beginTransaction()?.replace(R.id.myNavHostFragment, occasioni_create())?.commit()
+                //se va tutto bene navigo a questa parte
 
-            //vm.updateEvent(event)
-//        databaseRef.updateChildren(event).addOnSuccessListener {
-//            Toast.makeText(requireContext(), " Evento Modificato con successo", Toast.LENGTH_SHORT).show()
-//            fragmentManager?.beginTransaction()?.replace(R.id.myNavHostFragment, occasioni_create())?.commit()
-//        }
+
+
         }
     }

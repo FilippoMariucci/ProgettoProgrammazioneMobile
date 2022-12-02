@@ -26,6 +26,8 @@ class MapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
+
+        //mostra un marker sulla mappa
         val position = LatLng(43.58753588654174 , 13.516409413228683)
         googleMap.addMarker(MarkerOptions().position(position).title("this is our development headquarters"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
