@@ -44,14 +44,14 @@ class dettaglio_evento : Fragment() {
                               container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflating del  layout
         val args = this.arguments
         val argsEvento = args?.get("idEvento")
-        //urlImageEvento = args?.get("url_image") as String
+
         idEvento = argsEvento.toString()
         _binding = FragmentDettaglioEventoBinding.inflate(inflater, container, false)
         return binding.root
-        //return inflater.inflate(R.layout.fragment_dettaglio_evento, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,7 +60,7 @@ class dettaglio_evento : Fragment() {
         getEventData()
         vm = ViewModelProviders.of(requireActivity()).get(eventViewModel::class.java)
         vm_image = ViewModelProviders.of(requireActivity()).get(imageViewModel::class.java)
-        //binding.buttonPartecipoDett.setOnClickListener{paretecipaEvento()}
+
     }
 
 
@@ -90,7 +90,7 @@ class dettaglio_evento : Fragment() {
                             val size = listPartecipanti.size
                             partecipanti = 0
                             for (i in 0..size - 1) {
-                                if (listPartecipanti[i] != null) partecipanti += 1
+                                if (listPartecipanti[i] != null) partecipanti += 1  //cosi arrivo a trovare il num di partecipanti
                             }
                         }catch (e : Exception){
                             partecipanti = 0
@@ -100,12 +100,12 @@ class dettaglio_evento : Fragment() {
                         if (persone != null) {
                             binding.npersone.setText(persone.toString())
                         }
-                        if(persone == 0) {
+                        if(persone == 0) { //se sono già occupati tutti i posti prenotabili
                             binding.buttonPartecipoDett.visibility = View.INVISIBLE
                             binding.fullEventoText.visibility = View.VISIBLE
                             binding.fullEventoText.setText("Raggiunto il numero massimo di partecipanti")
                         }
-                        else{
+                        else{ //se posso ancora prenotarmi allora mi prenoto
                             binding.buttonPartecipoDett.setOnClickListener{
                                 partecipaEvento()
                             }
@@ -127,12 +127,13 @@ class dettaglio_evento : Fragment() {
         })
     }
 
+    //serve per recuperare immagine di un certo evento
     private fun getImage(idEvento: String) = CoroutineScope(Dispatchers.IO).launch{
             var image_url = ""
             try {
                 val images =  Firebase.storage.reference.child("Users/").listAll().await()
-                for (i in images.items) {
-                    val evento_for_image = i.toString().substringAfterLast('/').substringBefore('.')
+                for (i in images.items) { //tra tutte le immagini su storage cerco quella che corrisponde all'evento passatocome parametro
+                    val evento_for_image = i.toString().substringAfterLast('/').substringBefore('.') //prendo una sub stringa che mi identifica evento
                     if(evento_for_image == idEvento){
                         val url = i.downloadUrl.await()
                         image_url = url.toString()
@@ -146,7 +147,8 @@ class dettaglio_evento : Fragment() {
             withContext(Dispatchers.Main) {
                 Glide.with(requireContext()).load(image_url).into(binding.fotoEvento)
             }
-        }
+        } //fine funzione getimage
+
 
 
     private fun partecipaEvento(){
@@ -158,11 +160,11 @@ class dettaglio_evento : Fragment() {
 
         listPartecipanti = ArrayList<String>()
 
-        //listPartecipanti.size <= evento.n_persone
+        //se mi voglio prenotare ad un evento che ho creato io non posso farlo e ricordo questa cosa con un bel messaggio
         if(id_creatore.equals(id_partecipante)) {
             Toast.makeText(requireContext(), "You can't apply for your own event", Toast.LENGTH_SHORT).show()
             return
-        }
+        }  //se evento è stato creato da un altro utente allora posso prenotarmi
         else {
             databaseReferencePartecipazione = FirebaseDatabase.getInstance().getReference("Partecipazione")
 
@@ -180,11 +182,13 @@ class dettaglio_evento : Fragment() {
                     catch (e:Exception) {
                         Toast.makeText(requireContext(), "Sei il primo a partecipare!", Toast.LENGTH_SHORT).show()
                     }
+                    //se mi sono già prenotato (e risulta ancora la mia partecipazione perche non mi sono cancellato)non posso prenotarmi di nuovo
                     if (listPartecipanti.contains(id_partecipante)) Toast.makeText(requireContext(), "You can't apply for this event", Toast.LENGTH_SHORT).show()
                     else {
                         listPartecipanti.add(id_partecipante)
                         val partecipazione = Partecipazione(id_creatore, listPartecipanti)
-                        if (id_evento != null) {
+
+                        if (id_evento != null) { //se mi prenoto effettivamente ad un evento con id non nullo allora procedo
                             databaseReferencePartecipazione.child(id_evento)
                                 .setValue(partecipazione)
                                 .addOnSuccessListener {
@@ -192,15 +196,15 @@ class dettaglio_evento : Fragment() {
                                         requireContext(),
                                         "Your application for this event was succesful!",
                                         Toast.LENGTH_LONG
-                                    ).show()
+                                    ).show()  //se va tutto bene gli dico che si è prenotato
                                 }.addOnFailureListener {
                                     Toast.makeText(
                                         requireContext(),
                                         "Sorry we got troubles!",
                                         Toast.LENGTH_LONG
-                                    ).show()
+                                    ).show()  //se va male qualcosa segnalo questo altro messaggio
                                 }
-                        }
+                        }  //fine del blocco --->  if(id_evento != null)
                     }
                 }
 
@@ -209,6 +213,6 @@ class dettaglio_evento : Fragment() {
                 }
             })
         }
-    }
+    } //fine funzione per prenotarsi ad un evento al quale si vuole partecipare
 
 }

@@ -93,7 +93,7 @@ class eventViewModel(application: Application) : AndroidViewModel(application) {
     }
     fun getDateTimeCalendar(): ArrayList<Int> {
         val cal = Calendar.getInstance()
-        var array = arrayListOf<Int>()  //per salvare info sulla data
+        var array = arrayListOf<Int>()  //per salvare info sulla data che poi uso per settare data e ora di un evento che creo
         var day = cal.get(Calendar.DAY_OF_MONTH)  //prendo tutto quello che mi interessa salvare
         var month = cal.get(Calendar.MONTH)
         var year = cal.get(Calendar.YEAR)

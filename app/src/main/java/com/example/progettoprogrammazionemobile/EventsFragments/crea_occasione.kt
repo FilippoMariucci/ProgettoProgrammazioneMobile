@@ -22,7 +22,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
-import com.example.progettoprogrammazionemobile.BuildConfig
+//import com.example.progettoprogrammazionemobile.BuildConfig   // vedere meglio
 import com.example.progettoprogrammazionemobile.R
 import com.example.progettoprogrammazionemobile.ViewModel.eventViewModel
 import com.example.progettoprogrammazionemobile.databinding.FragmentCreaOccasioneBinding
@@ -47,6 +47,8 @@ class crea_occasione : Fragment(R.layout.fragment_crea_occasione), DatePickerDia
     private val home = homeFragment()
     private lateinit var getPosition : List<Address>
 
+
+    //buildconfig problema su import???
     private var packageName = BuildConfig.APPLICATION_ID
 
     private lateinit var evento : Evento
@@ -68,9 +70,8 @@ class crea_occasione : Fragment(R.layout.fragment_crea_occasione), DatePickerDia
         super.onCreate(savedInstanceState)
     }
 
-    /* SET DATA E ORA DIALOG ----------
-    -----------------------------------
-     */
+
+    //setta data e ora nel dialog da usare per impostare dat e ora di un evento che voglio creare
     override fun onResume() {
         super.onResume()
         val languages = resources.getStringArray(R.array.languages)
@@ -81,7 +82,7 @@ class crea_occasione : Fragment(R.layout.fragment_crea_occasione), DatePickerDia
         binding.autoCompleteCategories.setAdapter(arrayCategoriesAdapter)
         binding.autoCompleteLanguages.setAdapter(arrayLanguagesAdapter)
         binding.InputDataEvento.setOnClickListener(View.OnClickListener {
-            array_date_time = vm.getDateTimeCalendar()
+            array_date_time = vm.getDateTimeCalendar()  //f.ne del view model per prendere data odierna quando creo evento
             DatePickerDialog(requireContext(), this, array_date_time.get(2), array_date_time.get(1), array_date_time.get(0)).show()
         })
     }
@@ -108,7 +109,7 @@ class crea_occasione : Fragment(R.layout.fragment_crea_occasione), DatePickerDia
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout XML file and return a binding object instance
+        // Inflate del layout e istanza di un oggetto  binding
         _binding= FragmentCreaOccasioneBinding.inflate(inflater, container, false)
 
         auth = FirebaseAuth.getInstance()
@@ -124,6 +125,7 @@ class crea_occasione : Fragment(R.layout.fragment_crea_occasione), DatePickerDia
         button = getView()?.findViewById(R.id.scegliImmagine)
         imageView = getView()?.findViewById(R.id.immagine)
 
+        //qui per leggere storage del dispositivo per scegliere la foto da caricare quando creo evento
         button?.setOnClickListener {
             activity?.let{
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
@@ -145,7 +147,7 @@ class crea_occasione : Fragment(R.layout.fragment_crea_occasione), DatePickerDia
         databaseReference = FirebaseDatabase.getInstance().getReference("Users")
 
         binding.btnaddEvento.setOnClickListener{
-            this.saveEvento()
+            this.saveEvento() //definita dopo per salvare effettivamente un evento
         }
 
 
@@ -158,10 +160,10 @@ class crea_occasione : Fragment(R.layout.fragment_crea_occasione), DatePickerDia
         grantResults: IntArray
     ) {
         when(requestCode){
-            PERMISSION_CODE -> {
+            PERMISSION_CODE -> { //se ho acconsentito al permesso allora...
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     pickImagegallery()
-                }else{
+                }else{  //sennò gli dico dove sta il problema
                     Toast.makeText(this.requireContext(),"Permission denied", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -185,7 +187,8 @@ class crea_occasione : Fragment(R.layout.fragment_crea_occasione), DatePickerDia
         }
     }
 
-    // function that check fields
+    // funzione che controlla i campi inseriti nella form per creare un evento
+    //evento lo salvo solo se utente rispetta tutti i vincoli
     private fun saveEvento(){
         val geocode = Geocoder(requireContext())
 
@@ -203,14 +206,14 @@ class crea_occasione : Fragment(R.layout.fragment_crea_occasione), DatePickerDia
         val indirizzo_evento = binding.indirizzoEvento.editText?.text.toString().trim()
         if(indirizzo_evento.isEmpty()){binding.errorMsg.setText("Aggiungi l'indirizzo dell'evento!"); return}
 
-        // check fields inputs
+        // controlla gli input effettivamente inseriti
         try {
             var indirizzoEvento = "$indirizzo_evento" + ", " + "$citta_evento"
             getPosition = geocode.getFromLocationName(indirizzoEvento, 5)
             if (getPosition.isEmpty()) {
                 binding.errorMsg.setText("Citta o indirizzo errati, attento a non inserire spazi alla fine!"); return}
         }catch (e: Exception){
-            Log.d("getPosition", "$e"); return}
+            Log.d("prendilaPosition", "$e"); return}
 
         val npersone_evento = binding.npersoneEvento.editText?.text.toString().trim()
         if(npersone_evento.isEmpty() ){
@@ -233,7 +236,7 @@ class crea_occasione : Fragment(R.layout.fragment_crea_occasione), DatePickerDia
         val data_evento = binding.textDateEvento.text.toString().trim()
         if(data_evento.isEmpty()){
             binding.errorMsg.setText("Aggiungi la data e l'ora dell'evento"); return
-        }else{
+        }else{ //voglio che la data di svolgimento dell'evento sia almeno al giorno successivo per dare visibiità in modo tale che in teroia qualcuno puo vederlo e organizzarsi per partecipare
             if(savedYear < array_date_time.get(2)){
                binding.errorMsg.setText("Aggiungi una data a partire da domani"); return
             }
@@ -255,11 +258,13 @@ class crea_occasione : Fragment(R.layout.fragment_crea_occasione), DatePickerDia
             categoria_evento, citta_evento, indirizzo_evento, data_evento, costo_evento,
             npersone_evento, foto_evento, userId)
         vm.saveEvento(model)
-        Toast.makeText(requireContext(), "Evento creato con Successo!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Evento creato con Successo!", Toast.LENGTH_SHORT).show() //se va tutto bene
         backDiscover()
     }
 
+
+    //se va tutto bene queta la uso per tornare al fragment iniziale
     private fun backDiscover() {
         if(isAdded)  fragmentManager?.beginTransaction()?.replace(R.id.myNavHostFragment, home)?.commit()
-    }
+    }                                   //torno al fragement iniziale,cioè home quando apre app da loggato, se è andato tutto bene
 }
