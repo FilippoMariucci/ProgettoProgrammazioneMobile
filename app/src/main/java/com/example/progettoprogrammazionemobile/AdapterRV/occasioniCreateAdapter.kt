@@ -18,8 +18,8 @@ class occasioniCreateAdapter(private var occasioniUtente: List<EventoDb>):
     private lateinit var cListener : OnCreatedClickListener
 
     interface OnCreatedClickListener{
-        fun deleteEvent(idEvento : String, size: Int, position: String)
-        fun modificaEvent (idEvento: String)
+        fun deleteEvent(idEvento : String, size: Int, position: String)  //per eliminare evento che ho creato
+        fun modificaEvent (idEvento: String)  //per modificare evento che ho creato
     }
 
     fun setOndeleteClickListener (listener: OnCreatedClickListener){
@@ -51,7 +51,7 @@ class occasioniCreateAdapter(private var occasioniUtente: List<EventoDb>):
         val delete : ImageButton = itemView.findViewById(R.id.deleteOccasione)
         val modifica : ImageButton = itemView.findViewById(R.id.modficaOccasione)
 
-        init {
+        init {  //funzioni definite sopra per eliminare o modificare evento che era stato creato da user loggato
             delete.setOnClickListener{
                 listener.deleteEvent(idEvento as String, occasioniUtente.size, adapterPosition.toString())
                 }

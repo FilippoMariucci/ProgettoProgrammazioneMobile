@@ -13,14 +13,14 @@ public class Adapter(var list:List<Int>, var ctx: Context) : PagerAdapter() {
     lateinit var layoutInflater: LayoutInflater
 
     override fun getCount(): Int {
-        return list.size
+        return list.size //conta elementi della list passata come paraetro alla classe
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
         return view.equals(`object`)
     }
 
-    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+    override fun instantiateItem(container: ViewGroup, position: Int): Any { // detrmina se una view è associata a un oggetto specifo (letto in docs android)
         layoutInflater = LayoutInflater.from(ctx)
         var view = layoutInflater.inflate(R.layout.item, container, false)
         val img = view.findViewById<ImageView>(R.id.data)

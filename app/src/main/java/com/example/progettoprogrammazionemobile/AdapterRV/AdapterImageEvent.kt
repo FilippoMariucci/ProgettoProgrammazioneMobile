@@ -42,6 +42,7 @@ class AdapterImageEvent: RecyclerView.Adapter<AdapterImageEvent.MyViewHolder>() 
         }
     }
 
+    //crea i contenitori per gli elementi della lista
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.event_item, parent,false), cListener)
@@ -51,10 +52,8 @@ class AdapterImageEvent: RecyclerView.Adapter<AdapterImageEvent.MyViewHolder>() 
         return contactsList.size
     }
 
-//    public fun getItem(position: Int): EventoDb{
-//        return contactsList[position]
-//    }
 
+    //aggiorna i dati del contenitore di un elemento della lista che voglio visualizzare e scrollare o comunque scorrere in qualche modo
     override fun onBindViewHolder(holder: MyViewHolder, position: Int){
         val currentItem = contactsList[position]
         holder.idEvent = currentItem.id_evento.toString()

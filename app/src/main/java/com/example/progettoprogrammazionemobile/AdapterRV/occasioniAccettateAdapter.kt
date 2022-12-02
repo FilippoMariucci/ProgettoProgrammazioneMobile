@@ -15,8 +15,8 @@ RecyclerView.Adapter<occasioniAccettateAdapter.viewHolder>() {
     private lateinit var aListener : OnEventClickListener
 
     interface OnEventClickListener{
-        fun seeMoreclick(idEvento: String, toString: String)
-        fun cancelclick (idEvento: String, size: Int, position: String)
+        fun seeMoreclick(idEvento: String, toString: String) //per andare a vedere tutte info
+        fun cancelclick (idEvento: String, size: Int, position: String) //per eliminare prenotazione
     }
 
     fun setOnEventClickListener(listener : OnEventClickListener){
@@ -58,10 +58,10 @@ RecyclerView.Adapter<occasioniAccettateAdapter.viewHolder>() {
 
     init {
             seeMore.setOnClickListener{
-                listener.seeMoreclick(idEvento as String, adapterPosition.toString())
+                listener.seeMoreclick(idEvento as String, adapterPosition.toString())  //per vedere tutti i dettagli dell'evento
             }
             cancel.setOnClickListener{
-                listener.cancelclick(idEvento as String, occasioniAccettate.size, adapterPosition.toString())
+                listener.cancelclick(idEvento as String, occasioniAccettate.size, adapterPosition.toString())  //per eliminare prenotazione
             }
         }
 
