@@ -39,7 +39,7 @@ class occasioni_create : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflating del layout del fragment
         _binding = FragmentOccasioniCreateBinding.inflate(inflater, container, false,)
 
         auth = FirebaseAuth.getInstance()
@@ -65,6 +65,8 @@ class occasioni_create : Fragment() {
         }
     }
 
+
+    //vedo lista degli eventi creati e posso modificare dati oppure eliminare evento
     private fun getUserEvents() {
         CreateEventsRec.visibility = View.GONE
 
@@ -78,43 +80,47 @@ class occasioni_create : Fragment() {
 
 
         adapter.setOndeleteClickListener(object : occasioniCreateAdapter.OnCreatedClickListener{
-            override fun deleteEvent(idEvento: String, size: Int, position: String) {
-                eliminaEvento(idEvento, adapter, position)
+            override fun deleteEvent(idEvento: String, size: Int, position: String) { //per eliminare un evento
+                eliminaEvento(idEvento, adapter, position)  //definita dopo
             }
-
+               //per andare a modificare dettagli di un evento
             override fun modificaEvent(idEvento: String) {
-                goModifica(idEvento)
+                goModifica(idEvento)  //definita dopo
             }
         })
         CreateEventsRec.visibility = View.VISIBLE
     }
 
+
+    //per eliminare un evento che user loggato aveva creato
     private fun eliminaEvento (idEvento: String, createdAdapter: occasioniCreateAdapter, position: String, )
     {
-        // Open dialog to confirm remove action
+        // faccio comparire un dialog per fargli confermare/interrompere  l'azione di eliminazione
         val builder = AlertDialog.Builder(requireActivity())
         builder.setMessage("Are you sure?")
                  .setCancelable(true)
-                 .setPositiveButton("Yes", DialogInterface.OnClickListener {
+                 .setPositiveButton("Yes", DialogInterface.OnClickListener { //se vuole eliminare
                      dialog, id ->
                      vm.deleteEvent(idEvento, uid)
                      createdAdapter.notifyItemRemoved(position.toInt())
                      dialog.dismiss()
                  })
-                .setNegativeButton("No", DialogInterface.OnClickListener {
+                .setNegativeButton("No", DialogInterface.OnClickListener { //se non vuole eliminare
                     dialog, id-> dialog.cancel()
             })
         val alert = builder.create()
         alert.show()
     }
 
+
+    //per andare a modificare un evento che user loggato aveva in precedenza creato
     private fun goModifica (idEvento: String){
         val bundle = Bundle()
         bundle.putString("idEvento", idEvento)
         Log.d("idEvento", "$idEvento")
         modificaOccasione.arguments = bundle
         fragmentManager?.beginTransaction()?.replace(R.id.myNavHostFragment, modificaOccasione)?.commit()
-
+                                                              //vado in questo fragment per poi effetivamente fare le modifiche che voglio
     }
 
 }
