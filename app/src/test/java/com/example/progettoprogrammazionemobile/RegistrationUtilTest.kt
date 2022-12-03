@@ -7,7 +7,7 @@ import org.junit.Test
 class RegistrationUtilTest{
 
 
-    // in questo modo si puo chiamare la funziona come si vuole
+
     @Test
     fun ` email vuota restituisce false` () {
         val result = RegistrationUtil.validateRegistrationInput(

@@ -6,8 +6,7 @@ import android.util.Log
 import androidx.lifecycle.*
 
 
-//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
-//import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
+
 import com.example.progettoprogrammazionemobile.database.EventoDb
 import com.example.progettoprogrammazionemobile.database.EventsRoomDb
 

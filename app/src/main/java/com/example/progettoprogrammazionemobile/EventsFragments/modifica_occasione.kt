@@ -16,7 +16,7 @@ import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProviders
-//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
+
 import com.example.progettoprogrammazionemobile.database.EventoDb
 
 import com.example.progettoprogrammazionemobile.R

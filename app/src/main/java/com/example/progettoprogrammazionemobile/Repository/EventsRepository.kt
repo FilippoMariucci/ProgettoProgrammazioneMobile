@@ -5,8 +5,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 
 
-//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
-//import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
+
 
 
 

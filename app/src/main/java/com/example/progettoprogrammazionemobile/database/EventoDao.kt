@@ -1,9 +1,9 @@
-//package com.example.appericolo.ui.preferiti.contacts.database
+
 package com.example.progettoprogrammazionemobile.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
+
 import com.example.progettoprogrammazionemobile.model.Evento
 
 

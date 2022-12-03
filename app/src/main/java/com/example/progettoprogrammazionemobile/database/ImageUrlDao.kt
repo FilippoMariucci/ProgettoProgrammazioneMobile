@@ -1,4 +1,4 @@
-//package com.example.appericolo.ui.preferiti.contacts.database
+
 package com.example.progettoprogrammazionemobile.database
 
 import androidx.lifecycle.LiveData

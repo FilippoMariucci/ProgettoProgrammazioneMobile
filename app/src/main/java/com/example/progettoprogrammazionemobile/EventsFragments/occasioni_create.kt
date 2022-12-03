@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
+
 import com.example.progettoprogrammazionemobile.database.EventoDb
 
 

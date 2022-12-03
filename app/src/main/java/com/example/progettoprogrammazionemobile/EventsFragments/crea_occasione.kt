@@ -21,11 +21,11 @@ import androidx.core.content.ContextCompat
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
+
 import com.example.progettoprogrammazionemobile.database.EventoDb
 
 
-//import com.example.progettoprogrammazionemobile.BuildConfig   // vedere meglio
+//import com.example.progettoprogrammazionemobile.BuildConfig   // vedere meglio perchè segnala un errore
 import com.example.progettoprogrammazionemobile.R
 import com.example.progettoprogrammazionemobile.ViewModel.eventViewModel
 import com.example.progettoprogrammazionemobile.databinding.FragmentCreaOccasioneBinding

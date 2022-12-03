@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
+
 import com.example.progettoprogrammazionemobile.R
 import com.example.progettoprogrammazionemobile.database.EventoDb
 import com.example.progettoprogrammazionemobile.model.Evento

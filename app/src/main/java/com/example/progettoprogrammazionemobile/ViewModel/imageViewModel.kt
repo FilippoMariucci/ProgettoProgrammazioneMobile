@@ -7,9 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 
 
-//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
-//import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
-//import com.example.appericolo.ui.preferiti.contacts.database.ImageUrlDao
+
 import com.example.progettoprogrammazionemobile.database.EventoDb
 import com.example.progettoprogrammazionemobile.database.EventsRoomDb
 import com.example.progettoprogrammazionemobile.database.ImageUrlDao
