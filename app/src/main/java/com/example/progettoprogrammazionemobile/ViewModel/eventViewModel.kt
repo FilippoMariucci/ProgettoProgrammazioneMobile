@@ -4,8 +4,14 @@ import android.app.Application
 import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
-import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
+
+
+//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
+//import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
+import com.example.progettoprogrammazionemobile.database.EventoDb
+import com.example.progettoprogrammazionemobile.database.EventsRoomDb
+
+
 import com.example.progettoprogrammazionemobile.Repository.EventsRepository
 import com.example.progettoprogrammazionemobile.model.Partecipazione
 import kotlinx.coroutines.Dispatchers

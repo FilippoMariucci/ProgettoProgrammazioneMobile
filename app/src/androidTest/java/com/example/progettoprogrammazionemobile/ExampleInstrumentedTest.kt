@@ -18,8 +18,7 @@ import org.junit.runner.RunWith
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
-//    @get:Rule
-//    var registration : ActivityScenarioRule<Registration> = ActivityScenarioRule(Registration::class.java)
+
     @get:Rule
     var login: ActivityScenarioRule<Login> = ActivityScenarioRule(Login::class.java)
 
@@ -37,7 +36,7 @@ class ExampleInstrumentedTest {
 
     @Test
     fun useAppContext() {
-        // Context of the app under test.
+
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.progettoprogrammazionemobile", appContext.packageName)
     }

@@ -3,9 +3,16 @@ package com.example.progettoprogrammazionemobile.Repository
 import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.LiveData
-import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
-import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
+
+
+//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
+//import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
+
+
+
 import com.example.progettoprogrammazionemobile.FirebaseDatabase.EventsDataFirebase
+import com.example.progettoprogrammazionemobile.database.EventoDb
+import com.example.progettoprogrammazionemobile.database.EventsRoomDb
 import com.example.progettoprogrammazionemobile.model.Partecipazione
 
 class EventsRepository(private val database: EventsRoomDb) {

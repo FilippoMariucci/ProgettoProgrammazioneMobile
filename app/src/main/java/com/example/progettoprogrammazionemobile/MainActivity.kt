@@ -8,8 +8,8 @@ import android.os.Handler
 import androidx.lifecycle.ViewModelProvider
 import com.example.progettoprogrammazionemobile.ViewModel.imageViewModel
 
-//import androidx.paging.Pager
-// è entrypoint dell'app come indicato nel manifest
+
+// è entrypoint dell'app come indicato nel manifest, poi mi porta all'activity di login
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

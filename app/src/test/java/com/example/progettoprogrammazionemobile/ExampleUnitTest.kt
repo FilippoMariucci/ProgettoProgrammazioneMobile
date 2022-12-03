@@ -2,7 +2,8 @@ package com.example.progettoprogrammazionemobile
 
 import android.app.Application
 import android.media.metrics.Event
-import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
+//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
+import com.example.progettoprogrammazionemobile.database.EventoDb
 import com.example.progettoprogrammazionemobile.Repository.EventsRepository
 import com.example.progettoprogrammazionemobile.ViewModel.EventoViewModel
 import com.example.progettoprogrammazionemobile.ViewModel.eventViewModel

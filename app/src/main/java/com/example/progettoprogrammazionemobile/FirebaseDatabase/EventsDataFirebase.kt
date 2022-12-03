@@ -2,8 +2,14 @@ package com.example.progettoprogrammazionemobile.FirebaseDatabase
 
 import android.net.Uri
 import android.util.Log
-import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
-import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
+
+
+//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
+//import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
+import com.example.progettoprogrammazionemobile.database.EventoDb
+import com.example.progettoprogrammazionemobile.database.EventsRoomDb
+
+
 import com.example.progettoprogrammazionemobile.model.Partecipazione
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*

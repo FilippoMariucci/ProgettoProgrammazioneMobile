@@ -117,6 +117,7 @@ class occasioni_accettate : Fragment() {
                     AcceptedEventsRec.visibility = View.VISIBLE
                   //uso adapter per gestire la rappresentazione  degli elementi che compongono la lista (item)
                     adapter.setOnEventClickListener(object : occasioniAccettateAdapter.OnEventClickListener{
+                        @SuppressLint("SuspiciousIndentation")
                         override fun cancelclick(idEvento: String, size: Int, position: String) { //per andare a eliminare una partecipazione: click su una figura apposita all'interno della "card" che contiene un item della lista
                             var IndexList = ArrayList<String>()
                                 FirebaseDatabase.getInstance().getReference("Partecipazione")

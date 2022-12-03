@@ -1,7 +1,11 @@
 package com.example.progettoprogrammazionemobile.FirebaseDatabase
 
 import android.util.Log
-import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
+//import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
+import com.example.progettoprogrammazionemobile.database.EventoDb
+import com.example.progettoprogrammazionemobile.database.EventsRoomDb
+
+
 import com.example.progettoprogrammazionemobile.database.ImageUrlDb
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage

@@ -5,9 +5,17 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
-import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
-import com.example.appericolo.ui.preferiti.contacts.database.ImageUrlDao
+
+
+//import com.example.appericolo.ui.preferiti.contacts.database.EventoDb
+//import com.example.appericolo.ui.preferiti.contacts.database.EventsRoomDb
+//import com.example.appericolo.ui.preferiti.contacts.database.ImageUrlDao
+import com.example.progettoprogrammazionemobile.database.EventoDb
+import com.example.progettoprogrammazionemobile.database.EventsRoomDb
+import com.example.progettoprogrammazionemobile.database.ImageUrlDao
+
+
+
 import com.example.progettoprogrammazionemobile.Repository.EventsRepository
 import com.example.progettoprogrammazionemobile.Repository.ImageRepository
 import com.example.progettoprogrammazionemobile.database.ImageUrlDb
